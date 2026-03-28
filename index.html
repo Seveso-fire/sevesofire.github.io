@@ -55,6 +55,23 @@
             margin-top: 10px;
             padding-left: 20px;
     }
+        .service-box strong {
+    font-size: 20px;
+    color: #d62828;
+    display: block;
+    margin-bottom: 10px;
+}
+.service-box ul li {
+    list-style: none;
+    position: relative;
+}
+
+.service-box ul li::before {
+    content: "•";
+    color: #d62828;
+    position: absolute;
+    left: -15px;
+}
 
     .service-box li {
         margin-bottom: 6px;
@@ -69,6 +86,9 @@
         .hero-photo {
             width: 100%;
             margin-top: 60px;
+            o-photo {
+            filter: brightness(0.85);
+
         }
 
         footer {
