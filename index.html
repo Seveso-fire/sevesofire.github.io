@@ -36,15 +36,15 @@ body {
     padding: 10px 30px;
 }
 
-.nav a {
+.nav div.menu-links a {
     color: #fff;
-    margin-left: 15px;
+    margin-left: 20px;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
 }
 
-.nav a:hover { opacity: 0.8; }
+.nav div.menu-links a:hover { opacity: 0.8; }
 
 /* Przycisk CTA czerwony */
 .btn {
@@ -57,17 +57,15 @@ body {
     transition: 0.3s;
 }
 
-.btn:hover {
-    opacity: 0.85;
-}
+.btn:hover { opacity: 0.85; }
 
-/* Header logo i opis na białym tle z falą */
+/* Header logo i opis na białym tle z falą paralaks */
 .header-logo {
     position: relative;
     background: #fff;
     text-align: center;
     padding: 80px 20px 60px 20px;
-    z-index: 1;
+    overflow: hidden;
 }
 
 .header-logo img {
@@ -93,16 +91,16 @@ body {
     line-height: 1.6;
 }
 
-/* Fala na dole headera */
-.header-logo::after {
-    content: "";
-    display: block;
+/* Fala na dole headera - paralaksa */
+.header-wave {
     position: absolute;
-    bottom: 0;
+    bottom: -40px;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 120px;
     background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #0f0f0f 100%);
+    z-index: 1;
+    transition: transform 0.3s ease;
 }
 
 /* Sekcje i tytuły */
@@ -159,7 +157,6 @@ body {
     animation: fadeInUp 0.8s forwards;
 }
 
-/* Hover efekt „premium” z delikatnym zoomem */
 .card:hover {
     transform: translateY(-8px) scale(1.03);
     background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
@@ -233,13 +230,13 @@ footer a { color: #C1121F; }
 
 <body>
 
-<!-- Górny czerwony pasek -->
+<!-- Górny czerwony pasek z wyrównanymi linkami -->
 <div class="nav" id="navbar">
     <div>SEVESO FIRE COMPLIANCE SPECIALISTS</div>
-    <div>
+    <div class="menu-links">
         <a href="#services">Usługi</a>
         <a href="#about">O nas</a>
-        <a href="#contact" class="btn">Kontakt</a>
+        <a href="#contact">Kontakt</a>
     </div>
 </div>
 
@@ -249,6 +246,7 @@ footer a { color: #C1121F; }
     <h1>Profesjonalne wsparcie w zakresie bezpieczeństwa i ochrony PPOŻ</h1>
     <p>Oferujemy kompleksową obsługę w zakresie SEVESO, ochrony przeciwpożarowej, pierwszej pomocy oraz inspekcji i szkoleń dla wszystkich typów obiektów – od zakładów przemysłowych, przez biura i magazyny, po inne obiekty firmowe.</p>
     <a href="#contact" class="btn">Skontaktuj się</a>
+    <div class="header-wave" id="headerWave"></div>
 </div>
 
 <!-- Sekcja usług -->
@@ -339,14 +337,22 @@ window.addEventListener('scroll', () => {
 // Sticky header z efektem zmniejszania logo
 const navbar = document.getElementById('navbar');
 const logo = document.getElementById('logo');
+const wave = document.getElementById('headerWave');
+
 window.addEventListener('scroll', () => {
-    if(window.scrollY > 50){
+    const scrollY = window.scrollY;
+    
+    // zmniejszenie logo
+    if(scrollY > 50){
         navbar.classList.add('shrink');
         logo.style.maxWidth = '500px';
     } else {
         navbar.classList.remove('shrink');
         logo.style.maxWidth = '700px';
     }
+
+    // paralaksa fali
+    wave.style.transform = `translateY(${scrollY * 0.3}px)`;
 });
 </script>
 
