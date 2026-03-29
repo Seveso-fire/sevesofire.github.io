@@ -32,21 +32,29 @@ body {
 
 .nav a {
     color: #fff;
-    margin-left: 15px; /* zmniejszony odstęp */
+    margin-left: 20px;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
 }
 
-.nav a:hover { opacity: 0.8; }
+.nav a:hover { 
+    opacity: 0.8; 
+}
 
 .nav .btn {
-    margin-left: 15px; /* zmniejszony odstęp */
-    background: #C1121F;
-    color: white;
+    margin-left: 15px;
+    background: #fff;
+    color: #C1121F;
     padding: 10px 24px;
     border-radius: 8px;
     text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav .btn:hover {
+    background: #f4f4f4;
 }
 
 /* Sekcja z logo i nagłówkiem */
@@ -57,7 +65,7 @@ body {
 }
 
 .header-logo img {
-    max-width: 500px;
+    max-width: 550px;
     width: 100%;
     height: auto;
     margin-bottom: 25px;
@@ -67,13 +75,15 @@ body {
     font-size: 48px;
     color: #000;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .header-logo p {
     color: #333;
     font-size: 20px;
-    max-width: 750px;
+    max-width: 800px;
     margin: 0 auto 30px auto;
+    text-align: justify;
 }
 
 /* Płynne przejście do ciemnego hero */
@@ -107,7 +117,9 @@ body {
     transition: 0.3s;
 }
 
-.btn:hover { opacity: 0.85; }
+.btn:hover { 
+    opacity: 0.85; 
+}
 
 /* Sekcje */
 .section-title {
@@ -147,6 +159,7 @@ body {
     transition: 0.4s;
     opacity: 0;
     transform: translateY(30px);
+    text-align: justify;
 }
 
 .card.visible {
@@ -194,6 +207,16 @@ footer {
 }
 
 footer a { color: #C1121F; }
+
+/* Animacje fade-in dla kart */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card.visible {
+    animation: fadeInUp 0.8s forwards;
+}
 
 </style>
 </head>
@@ -283,7 +306,7 @@ footer a { color: #C1121F; }
 </section>
 
 <section class="cta" id="contact">
-<h2>Potrzebujesz wsparcia? Napisz</h2>
+<h2>Potrzebujesz wsparcia PPOŻ?</h2>
 <a href="mailto:sevesofire@gmail.com" class="btn">Napisz do nas</a>
 </section>
 
