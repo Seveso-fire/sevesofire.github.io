@@ -46,7 +46,7 @@ body {
 .header-logo {
     position: relative;
     text-align: center;
-    padding: 140px 20px 60px 20px; /* przycisk niżej */
+    padding: 160px 20px 100px 20px; /* przycisk niżej */
     background: #fff url('header-bg.jpg') center/cover no-repeat fixed;
     border-bottom: 4px solid #C1121F;
     overflow: hidden;
@@ -68,7 +68,7 @@ body {
     color: #333;
     font-size: 20px;
     max-width: 800px;
-    margin: 0 auto 40px auto;
+    margin: 0 auto 50px auto;
     line-height: 1.6;
 }
 .header-logo .btn {
@@ -79,6 +79,8 @@ body {
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
+    display: inline-block;
+    margin-top: 30px;
 }
 .header-logo .btn:hover { opacity: 0.85; }
 
@@ -169,7 +171,7 @@ body {
 /* CTA */
 .cta {
     text-align: center;
-    padding: 120px 20px;
+    padding: 150px 20px 80px 20px; /* przycisk niżej */
 }
 .cta .btn {
     background: #C1121F;
@@ -179,6 +181,8 @@ body {
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
+    display: inline-block;
+    margin-top: 30px;
 }
 .cta .btn:hover { opacity: 0.85; }
 
@@ -250,7 +254,7 @@ footer a { color: #C1121F; }
 </div>
 
 <div class="card">
-<h3><i class="fas fa-drone" style="color:white;"></i> Inne usługi</h3>
+<h3><img src="drone-white.png" alt="drone" style="width:24px; margin-right:10px; vertical-align:middle;"> Inne usługi</h3>
 <ul>
 <li><i class="fas fa-check-circle"></i> Naloty dronowe (zdjęcia i filmy)</li>
 <li><i class="fas fa-check-circle"></i>Fotogrametria (ortofotomapy)</li>
@@ -299,7 +303,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Sticky header z efektem paralaksy
+// Sticky header z paralaksą
 const navbar = document.getElementById('navbar');
 const logo = document.getElementById('logo');
 const headerTitle = document.getElementById('headerTitle');
