@@ -28,19 +28,22 @@ body {
     padding: 15px 30px;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.nav.shrink {
+    padding: 10px 30px;
 }
 
 .nav a {
     color: #fff;
-    margin-left: 20px;
+    margin-left: 15px;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
 }
 
-.nav a:hover { 
-    opacity: 0.8; 
-}
+.nav a:hover { opacity: 0.8; }
 
 .nav .btn {
     margin-left: 15px;
@@ -61,21 +64,23 @@ body {
 .header-logo {
     background: #fff;
     text-align: center;
-    padding: 60px 20px;
+    padding: 80px 20px 60px 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .header-logo img {
-    max-width: 550px;
+    max-width: 600px;
     width: 100%;
     height: auto;
     margin-bottom: 25px;
+    transition: all 0.3s;
 }
 
 .header-logo h1 {
-    font-size: 48px;
+    font-size: 50px;
     color: #000;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .header-logo p {
@@ -83,10 +88,19 @@ body {
     font-size: 20px;
     max-width: 800px;
     margin: 0 auto 30px auto;
+    line-height: 1.6;
     text-align: justify;
 }
 
-/* Płynne przejście do ciemnego hero */
+/* Separator gradient między białym headerem a czarnym hero */
+.header-logo::after {
+    content: '';
+    display: block;
+    height: 50px;
+    background: linear-gradient(to bottom, #fff, #0f0f0f);
+}
+
+/* Hero */
 .hero {
     height: 50vh;
     display: flex;
@@ -104,6 +118,7 @@ body {
     font-size: 18px;
     max-width: 700px;
     margin: 0 auto;
+    text-align: justify;
 }
 
 /* Przycisk CTA */
@@ -117,9 +132,7 @@ body {
     transition: 0.3s;
 }
 
-.btn:hover { 
-    opacity: 0.85; 
-}
+.btn:hover { opacity: 0.85; }
 
 /* Sekcje */
 .section-title {
@@ -149,26 +162,38 @@ body {
     padding: 0 20px;
 }
 
-/* CARD nowoczesny */
+/* CARD nowoczesny z hover premium */
 .card {
     background: linear-gradient(145deg, #1f1f1f, #151515);
     padding: 30px;
     border-left: 5px solid #C1121F;
     border-radius: 16px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-    transition: 0.4s;
+    transition: all 0.4s ease;
     opacity: 0;
     transform: translateY(30px);
-    text-align: justify;
 }
 
 .card.visible {
     opacity: 1;
     transform: translateY(0);
+    animation: fadeInUp 0.8s forwards;
 }
 
+/* Hover efekt „premium” */
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.02);
+    background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    border-left: 5px solid #FF0000; /* mocniejszy czerwony akcent */
+}
+
+/* Karty w teamie też */
+.card.person:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    border-left: 5px solid #FF0000;
 }
 
 .card h3 {
@@ -177,12 +202,12 @@ body {
     font-size: 22px;
 }
 
-/* Poprawione listy */
 .card ul {
     padding-left: 20px;
     line-height: 1.7;
     color: #ddd;
     font-size: 16px;
+    text-align: justify;
 }
 
 /* TEAM */
@@ -208,24 +233,19 @@ footer {
 
 footer a { color: #C1121F; }
 
-/* Animacje fade-in dla kart */
+/* Animacje fade-in */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
-.card.visible {
-    animation: fadeInUp 0.8s forwards;
-}
-
 </style>
 </head>
 
 <body>
 
 <!-- Górny czerwony pasek -->
-<div class="nav">
-    <div>SEVESO FIRE</div>
+<div class="nav" id="navbar">
+    <div>SEVESO FIRE COMPLIANCE SPECIALISTS</div>
     <div>
         <a href="#services">Usługi</a>
         <a href="#about">O nas</a>
@@ -234,8 +254,8 @@ footer a { color: #C1121F; }
 </div>
 
 <!-- Sekcja z logo i nagłówkiem na białym tle -->
-<div class="header-logo">
-    <img src="logo.png" alt="SEVESO FIRE">
+<div class="header-logo" id="headerLogo">
+    <img src="logo.png" alt="SEVESO FIRE" id="logo">
     <h1>Profesjonalne wsparcie w zakresie bezpieczeństwa i ochrony PPOŻ</h1>
     <p>Oferujemy kompleksową obsługę w zakresie SEVESO, ochrony przeciwpożarowej, pierwszej pomocy oraz inspekcji i szkoleń dla wszystkich typów obiektów – od zakładów przemysłowych, przez biura i magazyny, po inne obiekty firmowe.</p>
     <a href="#contact" class="btn">Skontaktuj się</a>
@@ -316,6 +336,7 @@ footer a { color: #C1121F; }
 </footer>
 
 <script>
+// Animacja fade-in kart
 const cards = document.querySelectorAll('.card');
 window.addEventListener('scroll', () => {
     const trigger = window.innerHeight * 0.85;
@@ -325,6 +346,19 @@ window.addEventListener('scroll', () => {
             card.classList.add('visible');
         }
     });
+});
+
+// Sticky header z efektem zmniejszania logo
+const navbar = document.getElementById('navbar');
+const logo = document.getElementById('logo');
+window.addEventListener('scroll', () => {
+    if(window.scrollY > 50){
+        navbar.classList.add('shrink');
+        logo.style.maxWidth = '400px';
+    } else {
+        navbar.classList.remove('shrink');
+        logo.style.maxWidth = '600px';
+    }
 });
 </script>
 
