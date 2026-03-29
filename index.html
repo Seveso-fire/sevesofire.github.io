@@ -17,11 +17,11 @@ body {
     color: #f1f1f1;
 }
 
-/* NAVBAR */
+/* Górny pasek nawigacyjny */
 .nav {
     position: sticky;
     top: 0;
-    background: rgba(255,255,255,0.95); /* biały header */
+    background: #C1121F; /* czerwony pasek */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,7 +31,7 @@ body {
 }
 
 .nav a {
-    color: #000; /* ciemne linki na białym tle */
+    color: #fff; /* białe linki */
     margin-left: 20px;
     text-decoration: none;
     font-weight: 600;
@@ -46,11 +46,37 @@ body {
     text-decoration: none;
 }
 
-/* HERO */
+/* Sekcja z logo i nagłówkiem */
+.header-logo {
+    background: #fff; /* białe tło pod logo i nagłówek */
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.header-logo img {
+    max-width: 450px; /* większe logo */
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.header-logo h1 {
+    font-size: 42px;
+    color: #000; /* czarny nagłówek */
+    margin-bottom: 15px;
+}
+
+.header-logo p {
+    color: #333;
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+}
+
+/* HERO ciemny pod opis */
 .hero {
-    height: 80vh;
+    height: 50vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -60,25 +86,11 @@ body {
     background-position: center;
 }
 
-.hero img {
-    max-width: 450px; /* większe logo */
-    width: 100%;
-    height: auto;
-    margin-bottom: 30px;
-}
-
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 15px;
-}
-
 .hero p {
     color: #bbb;
     font-size: 18px;
-    margin-bottom: 25px;
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .btn {
@@ -173,8 +185,9 @@ footer a { color: #FF7A00; }
 
 <body>
 
+<!-- Górny czerwony pasek -->
 <div class="nav">
-    <div><img src="logo.png" alt="SEVESO FIRE" style="max-height:60px;"></div>
+    <div>SEVESO FIRE</div>
     <div>
         <a href="#services">Usługi</a>
         <a href="#about">O nas</a>
@@ -182,13 +195,13 @@ footer a { color: #FF7A00; }
     </div>
 </div>
 
-<section class="hero">
-    <div>
-        <h1>Profesjonalne wsparcie w zakresie bezpieczeństwa i ochrony PPOŻ</h1>
-        <p>Oferujemy kompleksową obsługę w zakresie SEVESO, ochrony przeciwpożarowej, pierwszej pomocy oraz inspekcji i szkoleń dla wszystkich typów obiektów – od zakładów przemysłowych, przez biura i magazyny, po inne obiekty firmowe.</p>
-        <a href="#contact" class="btn">Skontaktuj się</a>
-    </div>
-</section>
+<!-- Sekcja z logo i nagłówkiem na białym tle -->
+<div class="header-logo">
+    <img src="logo.png" alt="SEVESO FIRE">
+    <h1>Profesjonalne wsparcie w zakresie bezpieczeństwa i ochrony PPOŻ</h1>
+    <p>Oferujemy kompleksową obsługę w zakresie SEVESO, ochrony przeciwpożarowej, pierwszej pomocy oraz inspekcji i szkoleń dla wszystkich typów obiektów – od zakładów przemysłowych, przez biura i magazyny, po inne obiekty firmowe.</p>
+    <a href="#contact" class="btn">Skontaktuj się</a>
+</div>
 
 <!-- Sekcja usług -->
 <div class="section-title" id="services">
@@ -197,7 +210,6 @@ footer a { color: #FF7A00; }
 </div>
 
 <section class="services">
-
 <div class="card">
 <h3>SEVESO</h3>
 <ul>
@@ -234,7 +246,6 @@ footer a { color: #FF7A00; }
 <li>Doradztwo w zakresie biogazowni</li>
 </ul>
 </div>
-
 </section>
 
 <div class="section-title" id="about">
@@ -243,7 +254,6 @@ footer a { color: #FF7A00; }
 </div>
 
 <section class="team">
-
 <div class="card person">
 <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1">
 <h3>Łukasz Kościółkowski</h3>
@@ -255,7 +265,6 @@ footer a { color: #FF7A00; }
 <h3>Marcel Nowacki</h3>
 <p>Ekspert ds. zgodności</p>
 </div>
-
 </section>
 
 <section class="cta" id="contact">
