@@ -46,29 +46,28 @@ body {
 
 .nav a:hover { opacity: 0.8; }
 
-.nav .btn {
-    margin-left: 15px;
-    background: #fff;
-    color: #C1121F;
-    padding: 10px 24px;
-    border-radius: 8px;
+/* Przycisk CTA czerwony */
+.btn {
+    background: #C1121F;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
 }
 
-.nav .btn:hover {
-    background: #f4f4f4;
+.btn:hover {
+    opacity: 0.85;
 }
 
-/* Header logo i opis na białym tle */
+/* Header logo i opis na białym tle z falą */
 .header-logo {
+    position: relative;
     background: #fff;
     text-align: center;
     padding: 80px 20px 60px 20px;
-    position: relative;
     z-index: 1;
-    border-bottom: 5px solid #C1121F;
 }
 
 .header-logo img {
@@ -94,7 +93,19 @@ body {
     line-height: 1.6;
 }
 
-/* Karty usług */
+/* Fala na dole headera */
+.header-logo::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #0f0f0f 100%);
+}
+
+/* Sekcje i tytuły */
 .section-title {
     text-align: center;
     margin: 80px 0 40px;
@@ -105,7 +116,9 @@ body {
     font-size: 42px;
     font-weight: 700;
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .section-title h2::after {
@@ -240,12 +253,12 @@ footer a { color: #C1121F; }
 
 <!-- Sekcja usług -->
 <div class="section-title" id="services">
-    <h2>Zakres usług</h2>
+    <h2><i class="fas fa-industry"></i> Zakres usług</h2>
 </div>
 
 <section class="services">
 <div class="card">
-<h3>SEVESO</h3>
+<h3><i class="fas fa-industry"></i> SEVESO</h3>
 <ul>
 <li><i class="fas fa-check-circle"></i>Opracowywanie dokumentacji dla zakładów ZZR/ZDR</li>
 <li><i class="fas fa-check-circle"></i>Weryfikacja procedur planistycznych</li>
@@ -255,7 +268,7 @@ footer a { color: #C1121F; }
 </div>
 
 <div class="card">
-<h3>Ochrona przeciwpożarowa (PPOŻ)</h3>
+<h3><i class="fas fa-fire"></i> Ochrona przeciwpożarowa (PPOŻ)</h3>
 <ul>
 <li><i class="fas fa-check-circle"></i>Instrukcje bezpieczeństwa pożarowego</li>
 <li><i class="fas fa-check-circle"></i>Wyposażanie w sprzęt gaśniczy</li>
@@ -265,14 +278,14 @@ footer a { color: #C1121F; }
 </div>
 
 <div class="card">
-<h3>Pierwsza pomoc</h3>
+<h3><i class="fas fa-first-aid"></i> Pierwsza pomoc</h3>
 <ul>
 <li><i class="fas fa-check-circle"></i>Szkolenia i wsparcie w zakresie udzielania pierwszej pomocy</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Inne usługi</h3>
+<h3><i class="fas fa-drone"></i> Inne usługi</h3>
 <ul>
 <li><i class="fas fa-check-circle"></i>Naloty dronowe (zdjęcia i filmy)</li>
 <li><i class="fas fa-check-circle"></i>Fotogrametria (ortofotomapy)</li>
@@ -283,7 +296,7 @@ footer a { color: #C1121F; }
 </section>
 
 <div class="section-title" id="about">
-    <h2>O nas</h2>
+    <h2><i class="fas fa-users"></i> O nas</h2>
 </div>
 
 <section class="team">
