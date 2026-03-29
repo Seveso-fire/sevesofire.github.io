@@ -59,15 +59,15 @@ body {
 
 .btn:hover { opacity: 0.85; }
 
-/* Header logo i opis na animowanym tle z falą */
+/* Header logo i opis na animowanym tle */
 .header-logo {
     position: relative;
     text-align: center;
     padding: 80px 20px 60px 20px;
-    overflow: hidden;
     background: linear-gradient(-45deg, #ffffff, #f2f2f2, #ffffff, #f9f9f9);
     background-size: 1200% 1200%;
     animation: gradientBG 20s ease infinite;
+    border-bottom: 4px solid #C1121F; /* elegancka czerwona linia rozdzielająca */
 }
 
 @keyframes gradientBG {
@@ -97,19 +97,6 @@ body {
     max-width: 800px;
     margin: 0 auto 30px auto;
     line-height: 1.6;
-}
-
-/* Fala na dole headera */
-.header-wave {
-    position: absolute;
-    bottom: -40px;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #0f0f0f 100%);
-    z-index: 1;
-    border-radius: 50% 50% 0 0;
-    transition: transform 0.3s ease;
 }
 
 /* Sekcje i tytuły */
@@ -265,7 +252,6 @@ footer a { color: #C1121F; }
     <h1>Profesjonalne wsparcie w zakresie bezpieczeństwa i ochrony PPOŻ</h1>
     <p>Oferujemy kompleksową obsługę w zakresie SEVESO, ochrony przeciwpożarowej, pierwszej pomocy oraz inspekcji i szkoleń dla wszystkich typów obiektów – od zakładów przemysłowych, przez biura i magazyny, po inne obiekty firmowe.</p>
     <a href="#contact" class="btn">Skontaktuj się</a>
-    <div class="header-wave" id="headerWave"></div>
 </div>
 
 <!-- Sekcja usług -->
@@ -304,7 +290,7 @@ footer a { color: #C1121F; }
 <div class="card hover-3d">
 <h3><i class="fas fa-drone"></i> Inne usługi</h3>
 <ul>
-<li><i class="fas fa-check-circle"></i>Naloty dronowe (zdjęcia i filmy)</li>
+<li><i class="fas fa-check-circle"></i>Naloty dronowe (zdjęcia i filmy) <img src="drone-icon.png" alt="drone" style="width:18px; margin-left:5px;"></li>
 <li><i class="fas fa-check-circle"></i>Fotogrametria (ortofotomapy)</li>
 <li><i class="fas fa-check-circle"></i>Inspekcje dachów, elewacji i orynnowania</li>
 <li><i class="fas fa-check-circle"></i>Doradztwo w zakresie biogazowni</li>
@@ -356,7 +342,6 @@ window.addEventListener('scroll', () => {
 // Sticky header z efektem zmniejszania logo
 const navbar = document.getElementById('navbar');
 const logo = document.getElementById('logo');
-const wave = document.getElementById('headerWave');
 
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
@@ -368,8 +353,6 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('shrink');
         logo.style.maxWidth = '700px';
     }
-
-    wave.style.transform = `translateY(${scrollY * 0.3}px)`;
 });
 </script>
 
