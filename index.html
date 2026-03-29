@@ -48,7 +48,7 @@ body {
     position: relative;
     text-align: center;
     padding: 80px 20px 60px 20px;
-    background: #fff url('header-bg.jpg') center/cover no-repeat fixed; /* Paralaksa */
+    background: #fff url('header-bg.jpg') center/cover no-repeat fixed;
     border-bottom: 4px solid #C1121F;
     overflow: hidden;
 }
@@ -64,6 +64,7 @@ body {
     color: #000;
     margin-bottom: 20px;
     font-weight: 700;
+    transition: transform 0.3s, opacity 0.3s;
 }
 .header-logo p {
     color: #333;
@@ -71,7 +72,18 @@ body {
     max-width: 800px;
     margin: 0 auto 30px auto;
     line-height: 1.6;
+    transition: transform 0.3s, opacity 0.3s;
 }
+.header-logo .btn {
+    background: #C1121F;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.header-logo .btn:hover { opacity: 0.85; }
 
 /* Sekcje i tytuły */
 .section-title {
@@ -134,7 +146,17 @@ body {
     border-left: 5px solid #FF0000;
 }
 
-/* Ikony w kartach */
+/* Listy w kartach - bez kropek */
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.card ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
 .card ul li i {
     color: #C1121F;
     margin-right: 10px;
@@ -157,6 +179,16 @@ body {
     text-align: center;
     padding: 120px 20px;
 }
+.cta .btn {
+    background: #C1121F;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.cta .btn:hover { opacity: 0.85; }
 
 /* FOOTER */
 footer {
@@ -188,9 +220,9 @@ footer a { color: #C1121F; }
 
 <div class="header-logo" id="headerLogo">
     <img src="logo.png" alt="SEVESO FIRE" id="logo">
-    <h1>Profesjonalne wsparcie w zakresie bezpieczeństwa i ochrony PPOŻ</h1>
-    <p>Oferujemy kompleksową obsługę w zakresie SEVESO, ochrony przeciwpożarowej, pierwszej pomocy oraz inspekcji i szkoleń dla wszystkich typów obiektów – od zakładów przemysłowych, przez biura i magazyny, po inne obiekty firmowe.</p>
-    <a href="#contact" class="btn">Skontaktuj się</a>
+    <h1 id="headerTitle">Profesjonalne wsparcie w zakresie bezpieczeństwa i ochrony PPOŻ</h1>
+    <p id="headerText">Oferujemy kompleksową obsługę w zakresie SEVESO, ochrony przeciwpożarowej, pierwszej pomocy oraz inspekcji i szkoleń dla wszystkich typów obiektów – od zakładów przemysłowych, przez biura i magazyny, po inne obiekty firmowe.</p>
+    <a href="#contact" class="btn" id="headerBtn">Skontaktuj się</a>
 </div>
 
 <div class="section-title" id="services">
@@ -228,7 +260,7 @@ footer a { color: #C1121F; }
 <div class="card">
 <h3><i class="fas fa-drone"></i> Inne usługi</h3>
 <ul>
-<li><i class="fas fa-check-circle"></i>Naloty dronowe (zdjęcia i filmy) <img src="drone-icon.png" alt="drone" style="width:18px; margin-left:5px;"></li>
+<li><i class="fas fa-check-circle"></i><i class="fas fa-drone"></i> Naloty dronowe (zdjęcia i filmy)</li>
 <li><i class="fas fa-check-circle"></i>Fotogrametria (ortofotomapy)</li>
 <li><i class="fas fa-check-circle"></i>Inspekcje dachów, elewacji i orynnowania</li>
 <li><i class="fas fa-check-circle"></i>Doradztwo w zakresie biogazowni</li>
@@ -275,11 +307,18 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Sticky header z efektem zmniejszania logo
+// Sticky header z efektem paralaksy
 const navbar = document.getElementById('navbar');
 const logo = document.getElementById('logo');
+const headerTitle = document.getElementById('headerTitle');
+const headerText = document.getElementById('headerText');
+const headerBtn = document.getElementById('headerBtn');
+const header = document.getElementById('headerLogo');
+
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
+
+    // Shrink navbar i logo
     if(scrollY > 50){
         navbar.classList.add('shrink');
         logo.style.maxWidth = '500px';
@@ -288,9 +327,16 @@ window.addEventListener('scroll', () => {
         logo.style.maxWidth = '700px';
     }
 
-    // Paralaksa headera
-    const header = document.getElementById('headerLogo');
+    // Paralaksa tła headera
     header.style.backgroundPositionY = `${scrollY * 0.5}px`;
+
+    // Animacja tekstu i przycisku headera
+    headerTitle.style.transform = `translateY(${scrollY*0.2}px)`;
+    headerText.style.transform = `translateY(${scrollY*0.15}px)`;
+    headerBtn.style.transform = `translateY(${scrollY*0.1}px)`;
+    headerTitle.style.opacity = `${1 - scrollY/600}`;
+    headerText.style.opacity = `${1 - scrollY/600}`;
+    headerBtn.style.opacity = `${1 - scrollY/600}`;
 });
 </script>
 
