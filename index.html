@@ -53,11 +53,18 @@ body {
     background-position: center;
 }
 
+.logo-wrapper {
+    display: inline-block;
+    background: #fff; /* biały prostokąt pod logo */
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
 .hero img {
     max-width: 400px;
     width: 100%;
     height: auto;
-    margin-bottom: 30px;
 }
 
 .hero h1 {
@@ -177,9 +184,12 @@ footer a { color: #FF7A00; }
 
 <section class="hero">
     <div>
-        <img src="logo.png" alt="SEVESO FIRE">
-        <h1>Obsługa SEVESO i Ochrona PPOŻ dla firm i obiektów</h1>
-        <p>Kompleksowe wsparcie w zakresie bezpieczeństwa dla zakładów, biur, magazynów i innych obiektów – od dokumentacji SEVESO po doradztwo i procedury PPOŻ.</p>
+        <!-- Biały prostokąt pod logo -->
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="SEVESO FIRE">
+        </div>
+        <h1>Profesjonalne wsparcie w zakresie bezpieczeństwa i ochrony PPOŻ</h1>
+        <p>Oferujemy kompleksową obsługę w zakresie SEVESO, ochrony przeciwpożarowej, pierwszej pomocy oraz inspekcji i szkoleń dla wszystkich typów obiektów – od zakładów przemysłowych, przez biura i magazyny, po inne obiekty firmowe.</p>
         <a href="#contact" class="btn">Skontaktuj się</a>
     </div>
 </section>
