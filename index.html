@@ -38,7 +38,7 @@ body {
 
 .nav div.menu-links a {
     color: #fff;
-    margin-left: 20px;
+    margin-left: 15px;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
@@ -59,13 +59,21 @@ body {
 
 .btn:hover { opacity: 0.85; }
 
-/* Header logo i opis na białym tle z falą paralaks */
+/* Header logo i opis na animowanym tle z falą */
 .header-logo {
     position: relative;
-    background: #fff;
     text-align: center;
     padding: 80px 20px 60px 20px;
     overflow: hidden;
+    background: linear-gradient(-45deg, #ffffff, #f2f2f2, #ffffff, #f9f9f9);
+    background-size: 1200% 1200%;
+    animation: gradientBG 20s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
 }
 
 .header-logo img {
@@ -91,7 +99,7 @@ body {
     line-height: 1.6;
 }
 
-/* Fala na dole headera - paralaksa */
+/* Fala na dole headera */
 .header-wave {
     position: absolute;
     bottom: -40px;
@@ -100,6 +108,7 @@ body {
     height: 120px;
     background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #0f0f0f 100%);
     z-index: 1;
+    border-radius: 50% 50% 0 0;
     transition: transform 0.3s ease;
 }
 
@@ -129,12 +138,12 @@ body {
     border-radius: 2px;
 }
 
-/* GRID nowoczesny */
+/* GRID usług i teamu */
 .services, .team {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     padding: 0 20px;
 }
@@ -162,6 +171,16 @@ body {
     background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     border-left: 5px solid #FF0000;
+}
+
+/* Efekt lekkiego podświetlenia 3D przy scrollu */
+.card.hover-3d {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.hover-3d:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.7);
 }
 
 /* Karty teamu */
@@ -240,7 +259,7 @@ footer a { color: #C1121F; }
     </div>
 </div>
 
-<!-- Sekcja z logo i nagłówkiem na białym tle -->
+<!-- Sekcja z logo i nagłówkiem na animowanym tle -->
 <div class="header-logo" id="headerLogo">
     <img src="logo.png" alt="SEVESO FIRE" id="logo">
     <h1>Profesjonalne wsparcie w zakresie bezpieczeństwa i ochrony PPOŻ</h1>
@@ -255,7 +274,7 @@ footer a { color: #C1121F; }
 </div>
 
 <section class="services">
-<div class="card">
+<div class="card hover-3d">
 <h3><i class="fas fa-industry"></i> SEVESO</h3>
 <ul>
 <li><i class="fas fa-check-circle"></i>Opracowywanie dokumentacji dla zakładów ZZR/ZDR</li>
@@ -265,7 +284,7 @@ footer a { color: #C1121F; }
 </ul>
 </div>
 
-<div class="card">
+<div class="card hover-3d">
 <h3><i class="fas fa-fire"></i> Ochrona przeciwpożarowa (PPOŻ)</h3>
 <ul>
 <li><i class="fas fa-check-circle"></i>Instrukcje bezpieczeństwa pożarowego</li>
@@ -275,14 +294,14 @@ footer a { color: #C1121F; }
 </ul>
 </div>
 
-<div class="card">
+<div class="card hover-3d">
 <h3><i class="fas fa-first-aid"></i> Pierwsza pomoc</h3>
 <ul>
 <li><i class="fas fa-check-circle"></i>Szkolenia i wsparcie w zakresie udzielania pierwszej pomocy</li>
 </ul>
 </div>
 
-<div class="card">
+<div class="card hover-3d">
 <h3><i class="fas fa-drone"></i> Inne usługi</h3>
 <ul>
 <li><i class="fas fa-check-circle"></i>Naloty dronowe (zdjęcia i filmy)</li>
@@ -298,13 +317,13 @@ footer a { color: #C1121F; }
 </div>
 
 <section class="team">
-<div class="card person">
+<div class="card person hover-3d">
 <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1">
 <h3>Łukasz Kościółkowski</h3>
 <p>Specjalista bezpieczeństwa</p>
 </div>
 
-<div class="card person">
+<div class="card person hover-3d">
 <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1">
 <h3>Marcel Nowacki</h3>
 <p>Ekspert ds. zgodności</p>
@@ -342,7 +361,6 @@ const wave = document.getElementById('headerWave');
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     
-    // zmniejszenie logo
     if(scrollY > 50){
         navbar.classList.add('shrink');
         logo.style.maxWidth = '500px';
@@ -351,7 +369,6 @@ window.addEventListener('scroll', () => {
         logo.style.maxWidth = '700px';
     }
 
-    // paralaksa fali
     wave.style.transform = `translateY(${scrollY * 0.3}px)`;
 });
 </script>
