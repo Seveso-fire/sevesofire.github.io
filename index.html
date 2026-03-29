@@ -35,14 +35,17 @@ body {
     margin-left: 20px;
     text-decoration: none;
     font-weight: 600;
+    transition: 0.3s;
 }
+
+.nav a:hover { opacity: 0.8; }
 
 .nav .btn {
     margin-left: 30px;
-    background: #FF7A00;
+    background: #C1121F; /* czerwony przycisk */
     color: white;
-    padding: 10px 22px;
-    border-radius: 6px;
+    padding: 10px 24px;
+    border-radius: 8px;
     text-decoration: none;
 }
 
@@ -50,27 +53,27 @@ body {
 .header-logo {
     background: #fff; /* białe tło pod logo i nagłówek */
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
 }
 
 .header-logo img {
-    max-width: 450px; /* większe logo */
+    max-width: 500px; /* jeszcze większe logo */
     width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .header-logo h1 {
-    font-size: 42px;
+    font-size: 48px;
     color: #000; /* czarny nagłówek */
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .header-logo p {
     color: #333;
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto 25px auto;
+    font-size: 20px;
+    max-width: 750px;
+    margin: 0 auto 30px auto;
 }
 
 /* HERO ciemny pod opis */
@@ -86,18 +89,12 @@ body {
     background-position: center;
 }
 
-.hero p {
-    color: #bbb;
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
+/* Sekcje przyciski */
 .btn {
-    background: #FF7A00;
+    background: #C1121F; /* czerwony zamiast pomarańczowego */
     color: white;
     padding: 14px 28px;
-    border-radius: 8px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
@@ -134,14 +131,14 @@ body {
 
 /* CARD */
 .card {
-    background: #1a1a1a;
-    padding: 25px;
-    border-left: 3px solid #C1121F;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    transition: 0.3s;
+    background: #1f1f1f; /* ciemniejsze dla kontrastu */
+    padding: 30px;
+    border-left: 4px solid #C1121F;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    transition: 0.4s;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(25px);
 }
 
 .card.visible {
@@ -150,36 +147,36 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
 .card h3 {
     color: #C1121F;
+    margin-bottom: 15px;
 }
 
 /* TEAM */
 .person img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-bottom: 15px;
 }
 
 /* CTA */
 .cta {
     text-align: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 40px;
+    padding: 50px 20px;
     border-top: 1px solid #333;
     margin-top: 40px;
 }
 
-footer a { color: #FF7A00; }
-
+footer a { color: #C1121F; }
 </style>
 </head>
 
@@ -279,10 +276,8 @@ footer a { color: #FF7A00; }
 
 <script>
 const cards = document.querySelectorAll('.card');
-
 window.addEventListener('scroll', () => {
     const trigger = window.innerHeight * 0.85;
-
     cards.forEach(card => {
         const top = card.getBoundingClientRect().top;
         if (top < trigger) {
