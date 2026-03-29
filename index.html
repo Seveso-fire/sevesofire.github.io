@@ -6,6 +6,7 @@
 <title>SEVESO FIRE – Compliance Specialists</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
 <style>
 html { scroll-behavior: smooth; }
@@ -60,17 +61,18 @@ body {
     background: #f4f4f4;
 }
 
-/* Sekcja z logo i nagłówkiem */
+/* Header logo i opis na białym tle */
 .header-logo {
     background: #fff;
     text-align: center;
     padding: 80px 20px 60px 20px;
     position: relative;
     z-index: 1;
+    border-bottom: 5px solid #C1121F;
 }
 
 .header-logo img {
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
     height: auto;
     margin-bottom: 25px;
@@ -78,9 +80,10 @@ body {
 }
 
 .header-logo h1 {
-    font-size: 50px;
+    font-size: 48px;
     color: #000;
     margin-bottom: 20px;
+    font-weight: 700;
 }
 
 .header-logo p {
@@ -89,52 +92,9 @@ body {
     max-width: 800px;
     margin: 0 auto 30px auto;
     line-height: 1.6;
-    text-align: justify;
 }
 
-/* Separator gradient między białym headerem a czarnym hero */
-.header-logo::after {
-    content: '';
-    display: block;
-    height: 50px;
-    background: linear-gradient(to bottom, #fff, #0f0f0f);
-}
-
-/* Hero */
-.hero {
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(rgba(15,15,15,0.8), rgba(15,15,15,0.8)), url('https://images.unsplash.com/photo-1581091012184-5c1d6f5f3b5a');
-    background-size: cover;
-    background-position: center;
-}
-
-.hero p {
-    color: #bbb;
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: justify;
-}
-
-/* Przycisk CTA */
-.btn {
-    background: #C1121F;
-    color: white;
-    padding: 14px 28px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn:hover { opacity: 0.85; }
-
-/* Sekcje */
+/* Karty usług */
 .section-title {
     text-align: center;
     margin: 80px 0 40px;
@@ -142,22 +102,28 @@ body {
 
 .section-title h2 {
     color: #C1121F;
-    font-size: 36px;
+    font-size: 42px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
 }
 
-.section-title div {
-    width: 60px;
-    height: 3px;
+.section-title h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
     background: #C1121F;
-    margin: 10px auto;
+    margin: 8px auto 0 auto;
+    border-radius: 2px;
 }
 
 /* GRID nowoczesny */
 .services, .team {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     padding: 0 20px;
 }
@@ -180,17 +146,17 @@ body {
     animation: fadeInUp 0.8s forwards;
 }
 
-/* Hover efekt „premium” */
+/* Hover efekt „premium” z delikatnym zoomem */
 .card:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-8px) scale(1.03);
     background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    border-left: 5px solid #FF0000; /* mocniejszy czerwony akcent */
+    border-left: 5px solid #FF0000;
 }
 
-/* Karty w teamie też */
+/* Karty teamu */
 .card.person:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-6px) scale(1.03);
     background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     border-left: 5px solid #FF0000;
@@ -203,11 +169,22 @@ body {
 }
 
 .card ul {
-    padding-left: 20px;
+    padding-left: 0;
     line-height: 1.7;
     color: #ddd;
     font-size: 16px;
-    text-align: justify;
+}
+
+.card ul li {
+    margin-bottom: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.card ul li i {
+    color: #C1121F;
+    margin-right: 10px;
 }
 
 /* TEAM */
@@ -264,51 +241,49 @@ footer a { color: #C1121F; }
 <!-- Sekcja usług -->
 <div class="section-title" id="services">
     <h2>Zakres usług</h2>
-    <div></div>
 </div>
 
 <section class="services">
 <div class="card">
 <h3>SEVESO</h3>
 <ul>
-<li>Opracowywanie dokumentacji dla zakładów ZZR/ZDR</li>
-<li>Weryfikacja procedur planistycznych</li>
-<li>Procedury systemu zarządzania bezpieczeństwem</li>
-<li>Przygotowanie do kontroli organów (PSP, WIOŚ)</li>
+<li><i class="fas fa-check-circle"></i>Opracowywanie dokumentacji dla zakładów ZZR/ZDR</li>
+<li><i class="fas fa-check-circle"></i>Weryfikacja procedur planistycznych</li>
+<li><i class="fas fa-check-circle"></i>Procedury systemu zarządzania bezpieczeństwem</li>
+<li><i class="fas fa-check-circle"></i>Przygotowanie do kontroli organów (PSP, WIOŚ)</li>
 </ul>
 </div>
 
 <div class="card">
 <h3>Ochrona przeciwpożarowa (PPOŻ)</h3>
 <ul>
-<li>Instrukcje bezpieczeństwa pożarowego</li>
-<li>Wyposażanie w sprzęt gaśniczy</li>
-<li>Przeglądy urządzeń przeciwpożarowych</li>
-<li>Kompleksowa obsługa PPOŻ</li>
+<li><i class="fas fa-check-circle"></i>Instrukcje bezpieczeństwa pożarowego</li>
+<li><i class="fas fa-check-circle"></i>Wyposażanie w sprzęt gaśniczy</li>
+<li><i class="fas fa-check-circle"></i>Przeglądy urządzeń przeciwpożarowych</li>
+<li><i class="fas fa-check-circle"></i>Kompleksowa obsługa PPOŻ</li>
 </ul>
 </div>
 
 <div class="card">
 <h3>Pierwsza pomoc</h3>
 <ul>
-<li>Szkolenia i wsparcie w zakresie udzielania pierwszej pomocy</li>
+<li><i class="fas fa-check-circle"></i>Szkolenia i wsparcie w zakresie udzielania pierwszej pomocy</li>
 </ul>
 </div>
 
 <div class="card">
 <h3>Inne usługi</h3>
 <ul>
-<li>Naloty dronowe (zdjęcia i filmy)</li>
-<li>Fotogrametria (ortofotomapy)</li>
-<li>Inspekcje dachów, elewacji i orynnowania</li>
-<li>Doradztwo w zakresie biogazowni</li>
+<li><i class="fas fa-check-circle"></i>Naloty dronowe (zdjęcia i filmy)</li>
+<li><i class="fas fa-check-circle"></i>Fotogrametria (ortofotomapy)</li>
+<li><i class="fas fa-check-circle"></i>Inspekcje dachów, elewacji i orynnowania</li>
+<li><i class="fas fa-check-circle"></i>Doradztwo w zakresie biogazowni</li>
 </ul>
 </div>
 </section>
 
 <div class="section-title" id="about">
     <h2>O nas</h2>
-    <div></div>
 </div>
 
 <section class="team">
@@ -354,10 +329,10 @@ const logo = document.getElementById('logo');
 window.addEventListener('scroll', () => {
     if(window.scrollY > 50){
         navbar.classList.add('shrink');
-        logo.style.maxWidth = '400px';
+        logo.style.maxWidth = '500px';
     } else {
         navbar.classList.remove('shrink');
-        logo.style.maxWidth = '600px';
+        logo.style.maxWidth = '700px';
     }
 });
 </script>
