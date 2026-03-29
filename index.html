@@ -21,7 +21,7 @@ body {
 .nav {
     position: sticky;
     top: 0;
-    background: #C1121F; /* czerwony pasek */
+    background: #C1121F;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,8 +31,8 @@ body {
 }
 
 .nav a {
-    color: #fff; /* białe linki */
-    margin-left: 20px;
+    color: #fff;
+    margin-left: 15px; /* zmniejszony odstęp */
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
@@ -41,8 +41,8 @@ body {
 .nav a:hover { opacity: 0.8; }
 
 .nav .btn {
-    margin-left: 30px;
-    background: #C1121F; /* czerwony przycisk */
+    margin-left: 15px; /* zmniejszony odstęp */
+    background: #C1121F;
     color: white;
     padding: 10px 24px;
     border-radius: 8px;
@@ -51,13 +51,13 @@ body {
 
 /* Sekcja z logo i nagłówkiem */
 .header-logo {
-    background: #fff; /* białe tło pod logo i nagłówek */
+    background: #fff;
     text-align: center;
     padding: 60px 20px;
 }
 
 .header-logo img {
-    max-width: 500px; /* jeszcze większe logo */
+    max-width: 500px;
     width: 100%;
     height: auto;
     margin-bottom: 25px;
@@ -65,7 +65,7 @@ body {
 
 .header-logo h1 {
     font-size: 48px;
-    color: #000; /* czarny nagłówek */
+    color: #000;
     margin-bottom: 20px;
 }
 
@@ -76,7 +76,7 @@ body {
     margin: 0 auto 30px auto;
 }
 
-/* HERO ciemny pod opis */
+/* Płynne przejście do ciemnego hero */
 .hero {
     height: 50vh;
     display: flex;
@@ -84,14 +84,21 @@ body {
     justify-content: center;
     text-align: center;
     padding: 40px 20px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581091012184-5c1d6f5f3b5a');
+    background: linear-gradient(rgba(15,15,15,0.8), rgba(15,15,15,0.8)), url('https://images.unsplash.com/photo-1581091012184-5c1d6f5f3b5a');
     background-size: cover;
     background-position: center;
 }
 
-/* Sekcje przyciski */
+.hero p {
+    color: #bbb;
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Przycisk CTA */
 .btn {
-    background: #C1121F; /* czerwony zamiast pomarańczowego */
+    background: #C1121F;
     color: white;
     padding: 14px 28px;
     border-radius: 10px;
@@ -102,7 +109,7 @@ body {
 
 .btn:hover { opacity: 0.85; }
 
-/* SECTION */
+/* Sekcje */
 .section-title {
     text-align: center;
     margin: 80px 0 40px;
@@ -110,6 +117,7 @@ body {
 
 .section-title h2 {
     color: #C1121F;
+    font-size: 36px;
 }
 
 .section-title div {
@@ -119,26 +127,26 @@ body {
     margin: 10px auto;
 }
 
-/* GRID */
+/* GRID nowoczesny */
 .services, .team {
     max-width: 1100px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
     padding: 0 20px;
 }
 
-/* CARD */
+/* CARD nowoczesny */
 .card {
-    background: #1f1f1f; /* ciemniejsze dla kontrastu */
+    background: linear-gradient(145deg, #1f1f1f, #151515);
     padding: 30px;
-    border-left: 4px solid #C1121F;
-    border-radius: 15px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    border-left: 5px solid #C1121F;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
     transition: 0.4s;
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(30px);
 }
 
 .card.visible {
@@ -147,18 +155,27 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
 }
 
 .card h3 {
     color: #C1121F;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    font-size: 22px;
+}
+
+/* Poprawione listy */
+.card ul {
+    padding-left: 20px;
+    line-height: 1.7;
+    color: #ddd;
+    font-size: 16px;
 }
 
 /* TEAM */
 .person img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 14px;
     margin-bottom: 15px;
 }
 
@@ -177,6 +194,7 @@ footer {
 }
 
 footer a { color: #C1121F; }
+
 </style>
 </head>
 
